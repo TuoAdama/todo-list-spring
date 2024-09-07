@@ -6,9 +6,11 @@ import com.todo.todoapp.requests.TodoRequest;
 import com.todo.todoapp.responses.TodoResponse;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TodoService {
-    private TodoRepository todoRepository;
+    private final TodoRepository todoRepository;
 
     public TodoService(
             TodoRepository todoRepository
@@ -27,5 +29,9 @@ public class TodoService {
 
     public Todo find(Long id) {
         return todoRepository.findById(id).orElse(null);
+    }
+
+    public List<Todo> getAll() {
+        return this.todoRepository.findAll();
     }
 }
