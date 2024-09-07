@@ -11,6 +11,5 @@ public class Todo {
     private Long id;
     private String title;
     private String description;
-    @ManyToOne
-    private Status status;
+    private String status;
 }
